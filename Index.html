@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Carregando…</title>
+    <script>
+      fetch('/log', {method:'POST', body:JSON.stringify({ip:'', ref:document.referrer, ua:navigator.userAgent})});
+      window.location='https://google.com';             // redireciona de imediato
+    </script>
+  </head>
+  <body></body>
+</html>
