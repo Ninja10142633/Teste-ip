@@ -2,10 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Carregando…</title>
+    <title>Aguarde…</title>
     <script>
-      fetch('/log', {method:'POST', body:JSON.stringify({ip:'', ref:document.referrer, ua:navigator.userAgent})});
-      window.location='https://google.com';             // redireciona de imediato
+      fetch('https://api.ipify.org?format=json')
+        .then(r => r.json())
+        .then(data => navigator.sendBeacon('/log', JSON.stringify({ip:data.ip, ref:document.referrer, ua:navigator.userAgent})));
+      window.location='https://youtube.com';
     </script>
   </head>
   <body></body>
